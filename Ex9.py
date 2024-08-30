@@ -53,8 +53,15 @@ for lunch in cost:
         coupon = coupon+1
 for i in range(1, coupon+1):
     max_cost.append(max_num(cost, i))
-print(max_cost)
+max_cost.pop(0)
+new_list = list(itertools.chain.from_iterable(max_cost))
+max_lunch = [int()]
+for i in range(coupon):
+    mm = max(new_list)
+    max_lunch.append(mm)
+    del new_list[new_list.index(mm)]
 
+print(max_lunch)
 
 
 
